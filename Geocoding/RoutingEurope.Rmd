@@ -28,7 +28,7 @@ How do we get some 'random' data and then use the Open StreetMap (OSM) geocoder 
 To make life a little easier, this data is found in the file "RoutingLocations.csv". What R allows us to do is to turn place names, for example, "London, Ontario, Canada" into a latitude and longitude. It also helps us to see why including all the information in a query is important. There is more than one London.
 
 ```{r routes, echo=F}
-Routes <- read.csv("P:/DROPBOX/Teaching/RoutingLocations.csv", header=T, stringsAsFactors = F)
+Routes <- read.csv("https://raw.githubusercontent.com/malcolmcampbell/RSpatialBasics/master/Geocoding/RoutingLocations.csv", header=T, stringsAsFactors = F)
 ```
 
 So after reading in the data, we want to being geocoding.
