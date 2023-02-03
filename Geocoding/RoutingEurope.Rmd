@@ -1,0 +1,58 @@
+---
+title: "Geocoding Exercise using open source routing"
+author: "Associate Professor Malcolm Campbell"
+date: "3/02/2023"
+affiliation: "GeoHealth Laboratory, University of Canterbury"
+output: html_document
+subtitle: "for when you can't afford a trip to Europe"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Geocoding using Open Street Map
+
+This short document shows us how to read in some data, geocode it, then map it. Cool, or what? First, load in the library(s) we need to get it all up and running
+
+```{r libs, echo=F}
+library(leaflet)
+library(sf)
+library(tidygeocoder)
+```
+
+How do we get some 'random' data and then use the Open StreetMap (OSM) geocoder to turn it into useful maps for us? First, have a quick read of the key function we need to use here <https://rdrr.io/cran/tmaptools/man/geocode_OSM.html> or try typing ? with the command ("?geocode_OSM") into the Console with of R. We can now use the function to geocode and map some data. Lets imagine we have data on the locations we need. See the source of the data here <https://www.reddit.com/r/MapPorn/comments/105wkwy/when_you_cant_afford_a_trip_to_europe/>
+
+<img src="https://i.redd.it/kstliv58mpaa1.jpg" alt="budget" style="height: 500px; width:500px;"/>
+
+To make life a little easier, this data is found in the file "RoutingLocations.csv". What R allows us to do is to turn place names, for example, "London, Ontario, Canada" into a latitude and longitude. It also helps us to see why including all the information in a query is important. There is more than one London.
+
+```{r routes, echo=F}
+Routes <- read.csv("P:/DROPBOX/Teaching/RoutingLocations.csv", header=T, stringsAsFactors = F)
+```
+
+So after reading in the data, we want to being geocoding.
+
+```{r tidygeocoding}
+geocodedroutes <- tidygeocoder::geo(Routes$Locations, method = "osm") %>% 
+  st_as_sf(coords = c("long", "lat"), crs = 4326)
+```
+
+You should see a series of messages letting you know that the geocoding is working using the Open Street Map (osm) method. Next, we want to make a route to visit all of the european cities by driving, in Canada. Lets call this 'EuroCanroute' and create it using the command 'osrmRoute' which will build and the send an OSRM API query, getting travel geometry between our points.
+
+```{r tidygeocoding routes, echo=F}
+EuroCanroute <- osrm::osrmRoute(loc = geocodedroutes)
+```
+
+Now for the fun bit, drawing some maps. This time, we will use leaflet to draw the maps. The route ('addPolylines') is in green so we can see it, with markers ('addMarkers') in each city to visit.
+
+```{r map}
+leaflet ( data = geocodedroutes ) %>% 
+  addProviderTiles("CartoDB.Positron") %>% 
+  addMarkers(label = ~address) %>% 
+  addPolylines(data = EuroCanroute,
+               label = "Europe on a budget route",
+               color = "green")
+```
+
+#END
