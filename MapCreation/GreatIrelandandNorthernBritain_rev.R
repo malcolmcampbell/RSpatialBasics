@@ -97,7 +97,7 @@ tm_shape(GINB) +  tm_polygons(border.col = "seagreen2")+
 # plus scale bar (tm_scale_bar) and compass (tm_compass)
 tm_shape(GINB) + tm_polygons(border.col = "black")+
   tm_shape(EandW_union) + tm_polygons(border.col="black", lty=3, col="white") +
-  tm_logo(file="homemadeflag.png", position=c("left","top"), height=5)+
+  tm_logo(file="https://raw.githubusercontent.com/malcolmcampbell/RSpatialBasics/master/MapCreation/homemadeflag.png", position=c("left","top"), height=5)+
   tm_credits("Thanks to the referendum results of 23 June 2016\n
              libraries {sf},{tmap},{tmaptools}, {rnaturalearth},\n 
              {rnaturalearthhisres}, {rnaturalearthdata}", position=c("left","top"), size=0.5) +
@@ -120,7 +120,7 @@ tm_shape(GINB) + tm_polygons(border.col = "black")+
   tm_shape(capital) + tm_dots(col="red", size=0.4) + tm_text("query", size=0.75, xmod=-1.5, ymod=-.5) +
   tm_style("natural") +
   tm_layout(title="The United Brexit Kingdom of \nGreat Ireland & Northern Britain")+
-  tm_logo(file="C:/Users/mhc57/Dropbox (UC Enterprise)/OnlineGISTrial/GIS_sf_Tutorial_1/hypounion.png", position=c("left","top"), height=5)+
+  tm_logo(file="https://raw.githubusercontent.com/malcolmcampbell/RSpatialBasics/master/MapCreation/homemadeflag.png", position=c("left","top"), height=5)+
   tm_credits("Thanks to the referendum results of 23 June 2016", position=c("left","top"), size=0.5) +
   tm_compass(position=c("right","bottom"), type="rose", size=4) +
   tm_scale_bar(width=0.15, position=c("left","bottom")) 
@@ -128,7 +128,7 @@ tm_shape(GINB) + tm_polygons(border.col = "black")+
 brexitkingdom <- tm_shape(GINB) + tm_polygons(border.col = "black")+
   tm_shape(EandW_union) + tm_polygons(border.col="black", lty=3, col="white") +
   tm_shape(capital) + tm_dots(col="red", size=0.4) + tm_text("query", size=0.75, xmod=-1.5, ymod=-.5) +
-  tm_logo(file="homemadeflag.png", position=c("left","top"), height=5)+
+  tm_logo(file="https://raw.githubusercontent.com/malcolmcampbell/RSpatialBasics/master/MapCreation/homemadeflag.png", position=c("left","top"), height=5)+
   tm_credits("Thanks to the referendum results of 23 June 2016\n This example is purely fictional... for now", position=c("left","top"), size=0.5) +
   tm_compass(position=c("right","bottom"), type="rose", size=4) +
   tm_scale_bar(width=0.15, position=c("left","bottom")) +
@@ -145,7 +145,7 @@ brexitkingdomcaptial <- tm_shape(GINB) + tm_polygons(border.col = "black")+
   tm_shape(EandW_union) + tm_polygons(border.col="black", lty=3, col="white") +
   tm_shape(capital) + tm_dots(col="red", size=0.4) + tm_text("query", size=0.75, xmod=-1, ymod=-.5) +
   tm_shape(Cap) + tm_dots(col="blue", size=0.4, shape=15) + tm_text("Title", col="blue", size=0.75, xmod=-1.5, ymod=-.75) +
-  tm_logo(file="homemadeflag.png", position=c("left","top"), height=5)+
+  tm_logo(file="https://raw.githubusercontent.com/malcolmcampbell/RSpatialBasics/master/MapCreation/homemadeflag.png", position=c("left","top"), height=5)+
   tm_credits("Thanks to the referendum results of 23 June 2016\n This example is purely fictional... for now", position=c("left","top"), size=0.5) +
   tm_compass(position=c("right","bottom"), type="rose", size=4) +
   tm_scale_bar(width=0.15, position=c("left","bottom")) +
