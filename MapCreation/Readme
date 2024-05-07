@@ -1,3 +1,5 @@
 readme - create a new set of brexit geographies.
 
 Includes 'st_union' command and some tmap customisation material.
+
+FFO_map.R creates a map of fast food outlets in NZ. Provided by the GeoHealth Lab, NZ.
